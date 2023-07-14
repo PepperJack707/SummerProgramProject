@@ -24,6 +24,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        
 
     }
 
@@ -38,6 +39,7 @@ public class PlayerMove : MonoBehaviour
         else
         {
             isClick = false;
+            walking.SetBool("Sleeping", true);
             print("can't move");
         }
         
@@ -47,6 +49,7 @@ public class PlayerMove : MonoBehaviour
     {
         if(isClick)
         {
+            walking.SetBool("Sleeping", false);
             DetectPlayerMove();
         }
         growFunction();
@@ -139,6 +142,8 @@ public class PlayerMove : MonoBehaviour
         walking.SetBool("Split", true);
         yield return new WaitForSeconds(1f);
 
+        //walking.SetBool("Split", false);
+
         SpriteRenderer spriteRenderer = playerPrefab.GetComponent<SpriteRenderer>();
         
         Vector3 currentPosition = transform.position;
@@ -153,8 +158,6 @@ public class PlayerMove : MonoBehaviour
         player1.transform.localScale = smallerScale;
         en.player = player1.transform;
         player2.transform.localScale = smallerScale;
-
-
         Destroy(gameObject);
     }
 
