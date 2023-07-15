@@ -7,8 +7,6 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     public GameObject player;
     public Rigidbody2D rd;
-    public GameObject playerPrefab;
-    public GameObject playerSplitPrefab;
     public float speed =1f;
     public Sprite facingLeft;
     public SpriteRenderer sr;
@@ -18,8 +16,9 @@ public class PlayerMove : MonoBehaviour
     public Animator walking;
     private bool isClick;
     private int count;
-    public Enemy en; 
-
+    public Vector3 playerPosition;
+    public Vector3 playerScale;
+    
 
     void Start()
     {
@@ -42,18 +41,21 @@ public class PlayerMove : MonoBehaviour
             walking.SetBool("Sleeping", true);
             print("can't move");
         }
+
         
     }
     // Update is called once per frame
     void Update()
     {
-        if(isClick)
+        playerPosition = transform.position;
+        playerScale = transform.localScale;
+        if (isClick)
         {
             walking.SetBool("Sleeping", false);
             DetectPlayerMove();
         }
-        growFunction();
-        SplitFunction();
+        //growFunction();
+      
         
     }
 
@@ -99,13 +101,14 @@ public class PlayerMove : MonoBehaviour
 
 
     }
+    /*
     public void growFunction()
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
             rd.transform.localScale *= 1.5f;
         }
-    }
+    }*/
     void OnTriggerEnter2D(Collider2D cd)
     {
         if (cd.tag == "EatenThings")
@@ -113,7 +116,7 @@ public class PlayerMove : MonoBehaviour
             rd.transform.localScale *= 1.1f;
             Destroy(cd.gameObject);
         }
-        if(cd.tag == "PlayerSplit")
+        if(cd.tag == "Player")
         {
             rd.transform.localScale *= 1f;
             cd.gameObject.SetActive(false);
@@ -129,36 +132,6 @@ public class PlayerMove : MonoBehaviour
                 
         }*/
     }
-    void SplitFunction()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            StartCoroutine(SplitCoroutine());
-        }
-
-    }
-    IEnumerator SplitCoroutine()
-    {
-        walking.SetBool("Split", true);
-        yield return new WaitForSeconds(1f);
-
-        //walking.SetBool("Split", false);
-
-        SpriteRenderer spriteRenderer = playerPrefab.GetComponent<SpriteRenderer>();
-        
-        Vector3 currentPosition = transform.position;
-        Vector3 currentScale = transform.localScale;
-
-        Vector3 smallerScale = currentScale;
-        float offset = 0.7f;
-
-        GameObject player1 = Instantiate(playerPrefab, currentPosition + new Vector3(offset, 0f, 0f), Quaternion.identity);
-        GameObject player2 = Instantiate(playerSplitPrefab, currentPosition + new Vector3(-offset, 0f, 0f), Quaternion.identity);
-
-        player1.transform.localScale = smallerScale;
-        en.player = player1.transform;
-        player2.transform.localScale = smallerScale;
-        Destroy(gameObject);
-    }
+    
 
 }
