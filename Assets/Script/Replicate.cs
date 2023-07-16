@@ -11,7 +11,7 @@ public class Replicate : MonoBehaviour
     public Animator walking;
     public Enemy en;
     public PlayerMove pm;
-    public GameManager gm;
+    public Gamem gm;
     
     void Start()
     {
@@ -33,7 +33,7 @@ public class Replicate : MonoBehaviour
     }
     IEnumerator SplitCoroutine()
     {
-        walking.SetBool("Split", true);
+        //walking.SetBool("Split", true);
         yield return new WaitForSeconds(1f);
 
         //walking.SetBool("Split", false);
@@ -47,13 +47,13 @@ public class Replicate : MonoBehaviour
         float offset = 0.7f;
 
         GameObject player1 = Instantiate(playerPrefab, currentPosition + new Vector3(offset, 0f, 0f), Quaternion.identity);
-        GameObject player2 = Instantiate(playerSplitPrefab, currentPosition + new Vector3(-offset, 0f, 0f), Quaternion.identity);
+        //GameObject player2 = Instantiate(playerSplitPrefab, currentPosition + new Vector3(-offset, 0f, 0f), Quaternion.identity);
         gm.players.Add(player1, false);
-        gm.players.Add(player2, false);
+        //gm.players.Add(player2, false);
 
         player1.transform.localScale = smallerScale;
         en.player = player1.transform;
-        player2.transform.localScale = smallerScale;
-        Destroy(gameObject);
+        //player2.transform.localScale = smallerScale;
+        //Destroy(gameObject);
     }
 }
