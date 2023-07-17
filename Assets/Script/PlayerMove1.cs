@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -18,42 +19,27 @@ public class PlayerMove : MonoBehaviour
     private int count;
     public Vector3 playerPosition;
     public Vector3 playerScale;
-    
+    public GameObject playerPrefab;
+    public Gamem gm;
+
+
 
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        WakeUp();
         
 
     }
 
-    private void OnMouseDown()
-    {
-        count++;
-        if(count%2 ==1)
-        {
-            isClick = true;
-            print("can move now");
-        }
-        else
-        {
-            isClick = false;
-            walking.SetBool("Sleeping", true);
-            print("can't move");
-        }
 
-        
-    }
     // Update is called once per frame
     void Update()
     {
         playerPosition = transform.position;
         playerScale = transform.localScale;
-        if (isClick)
-        {
-            walking.SetBool("Sleeping", false);
-            DetectPlayerMove();
-        }
+        DetectPlayerMove();
+        
         //growFunction();
       
         
@@ -119,7 +105,13 @@ public class PlayerMove : MonoBehaviour
         if(cd.tag == "Player")
         {
             rd.transform.localScale *= 1f;
+            Vector3 newPosition = (rd.transform.position + cd.transform.position) / 2f;
+            Quaternion newRotation = rd.transform.rotation;
             cd.gameObject.SetActive(false);
+            GameObject largerSmile = Instantiate(playerPrefab, newPosition, newRotation);
+            gm.playerGameObjects.Add(largerSmile);
+            largerSmile.transform.localScale *= 1f;
+            gm.SwitchBetweenPlayer();
         }
         if(cd.tag =="Floor")
         {
@@ -132,6 +124,15 @@ public class PlayerMove : MonoBehaviour
                 
         }*/
     }
-    
+
+    public void GotoSleep()
+    {
+        walking.SetBool("Sleeping", true);
+    }
+    public void WakeUp()
+    {
+        walking.SetBool("Sleeping", false);
+    }
+
 
 }

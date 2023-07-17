@@ -8,7 +8,7 @@ public class Replicate : MonoBehaviour
     // Start is called before the first frame update
     public GameObject playerPrefab;
     public GameObject playerSplitPrefab;
-    public Animator walking;
+    //public Animator walking;
     public Enemy en;
     public PlayerMove pm;
     public Gamem gm;
@@ -33,8 +33,9 @@ public class Replicate : MonoBehaviour
     }
     IEnumerator SplitCoroutine()
     {
+        print("Replicate");
         //walking.SetBool("Split", true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0f);
 
         //walking.SetBool("Split", false);
 
@@ -44,16 +45,13 @@ public class Replicate : MonoBehaviour
         Vector3 currentScale = pm.playerScale;
 
         Vector3 smallerScale = currentScale;
-        float offset = 0.7f;
+        float offset = 1.3f;
 
         GameObject player1 = Instantiate(playerPrefab, currentPosition + new Vector3(offset, 0f, 0f), Quaternion.identity);
-        //GameObject player2 = Instantiate(playerSplitPrefab, currentPosition + new Vector3(-offset, 0f, 0f), Quaternion.identity);
-        gm.players.Add(player1, false);
-        //gm.players.Add(player2, false);
+        gm.playerGameObjects.Add(player1);
 
         player1.transform.localScale = smallerScale;
         en.player = player1.transform;
-        //player2.transform.localScale = smallerScale;
-        //Destroy(gameObject);
+        gm.SwitchBetweenPlayer();
     }
 }
