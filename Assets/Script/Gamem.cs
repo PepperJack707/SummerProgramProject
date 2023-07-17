@@ -7,7 +7,8 @@ public class Gamem : MonoBehaviour
 {
     public Dictionary<GameObject, bool> players = new Dictionary<GameObject, bool>();
     public ArrayList playerGameObjects = new ArrayList();
-    int countNum ;
+    public int countNum ;
+    public GameObject SplitAni;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +28,6 @@ public class Gamem : MonoBehaviour
         //print(players.Count);
         if(Input.GetKeyDown("p"))
         {
-            print("is runnin");
             SwitchBetweenPlayer();
         }
     }
@@ -46,7 +46,6 @@ public class Gamem : MonoBehaviour
             PlayerMove previousScript = previousPlayerObject.GetComponent<PlayerMove>();
             previousScript.GotoSleep();
             previousScript.enabled = false;
-            print("disabled");
             
         }
         else
@@ -56,7 +55,6 @@ public class Gamem : MonoBehaviour
             previousPlayerObject.tag = "PlayerSub";
             previousScript.GotoSleep();
             previousScript.enabled = false;
-            print("disabled");
         }
 
         GameObject currentPlayerObject = (GameObject)playerGameObjects[countNum];

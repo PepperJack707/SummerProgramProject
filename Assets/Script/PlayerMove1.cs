@@ -33,8 +33,6 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerPosition = transform.position;
-        playerScale = transform.localScale;
         DetectPlayerMove();
         
         //growFunction();
@@ -105,7 +103,11 @@ public class PlayerMove : MonoBehaviour
             Gamem gm = gameManagerObject.GetComponent<Gamem>();
             gm.playerGameObjects.Remove(cd.gameObject);
             Destroy(cd.gameObject);
-            gameObject.tag = "Player";
+            if (gm.countNum >= gm.playerGameObjects.Count)
+            {
+                gm.countNum = gm.countNum - gm.playerGameObjects.Count;
+            }
+            //gm.SwitchBetweenPlayer();
         }
         if(cd.tag =="Floor")
         {
