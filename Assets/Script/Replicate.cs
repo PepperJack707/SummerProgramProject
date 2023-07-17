@@ -52,6 +52,7 @@ public class Replicate : MonoBehaviour
 
         player1.transform.localScale = smallerScale;
         en.player = player1.transform;
+        gm.haveNewObj(player1);
         gm.SwitchBetweenPlayer();
     }
 }

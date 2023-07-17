@@ -73,4 +73,11 @@ public class Gamem : MonoBehaviour
 
         //print(players[currentPlayerObject]);
     }
+
+  public void haveNewObj(GameObject gameobj)
+    {
+        PlayerMove previousScript = gameobj.GetComponent<PlayerMove>();
+        previousScript.GotoSleep();
+        previousScript.enabled = false;
+    }
 }

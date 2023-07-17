@@ -9,6 +9,7 @@ TagManager:
   - Bug
   - Floor
   - Button
+  - PlayerSub
   layers:
   - Default
   - TransparentFX

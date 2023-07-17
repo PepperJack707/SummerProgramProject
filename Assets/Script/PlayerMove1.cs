@@ -107,9 +107,12 @@ public class PlayerMove : MonoBehaviour
             rd.transform.localScale *= 1f;
             Vector3 newPosition = (rd.transform.position + cd.transform.position) / 2f;
             Quaternion newRotation = rd.transform.rotation;
+            gm.playerGameObjects.Remove(cd.gameObject);
             cd.gameObject.SetActive(false);
+            
             GameObject largerSmile = Instantiate(playerPrefab, newPosition, newRotation);
             gm.playerGameObjects.Add(largerSmile);
+            gm.haveNewObj(largerSmile);
             largerSmile.transform.localScale *= 1f;
             gm.SwitchBetweenPlayer();
         }
