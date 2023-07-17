@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Build.Player;
 using UnityEngine;
 
 public class Gamem : MonoBehaviour
@@ -84,6 +85,10 @@ public class Gamem : MonoBehaviour
 
  public void PlaySplitAni()
  {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        Transform playerTransform = playerObject.transform;
+        Transform splitAni = playerTransform.GetChild(0);
+        splitAni.gameObject.SetActive(true);
 
- }
+    }
 }
