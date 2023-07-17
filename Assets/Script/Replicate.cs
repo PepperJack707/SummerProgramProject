@@ -39,15 +39,19 @@ public class Replicate : MonoBehaviour
 
         //walking.SetBool("Split", false);
 
-        SpriteRenderer spriteRenderer = playerPrefab.GetComponent<SpriteRenderer>();
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
-        Vector3 currentPosition = pm.playerPosition;
-        Vector3 currentScale = pm.playerScale;
+
+        SpriteRenderer playerSpriteRenderer = playerObject.GetComponent<SpriteRenderer>();
+
+        Vector3 currentPosition = playerObject.transform.position;
+        Vector3 currentScale = playerObject.transform.localScale;
 
         Vector3 smallerScale = currentScale;
         float offset = 1.3f;
 
         GameObject player1 = Instantiate(playerPrefab, currentPosition + new Vector3(offset, 0f, 0f), Quaternion.identity);
+        player1.tag = "PlayerSub";
         gm.playerGameObjects.Add(player1);
 
         player1.transform.localScale = smallerScale;

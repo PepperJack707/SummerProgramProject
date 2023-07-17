@@ -10,6 +10,7 @@ TagManager:
   - Floor
   - Button
   - PlayerSub
+  - GameManager
   layers:
   - Default
   - TransparentFX

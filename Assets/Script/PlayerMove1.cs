@@ -17,10 +17,7 @@ public class PlayerMove : MonoBehaviour
     public Animator walking;
     private bool isClick;
     private int count;
-    public Vector3 playerPosition;
-    public Vector3 playerScale;
     public GameObject playerPrefab;
-    public Gamem gm;
 
 
 
@@ -102,30 +99,19 @@ public class PlayerMove : MonoBehaviour
             rd.transform.localScale *= 1.1f;
             Destroy(cd.gameObject);
         }
-        if(cd.tag == "Player")
+        if(cd.tag == "PlayerSub")
         {
-            rd.transform.localScale *= 1f;
-            Vector3 newPosition = (rd.transform.position + cd.transform.position) / 2f;
-            Quaternion newRotation = rd.transform.rotation;
+            GameObject gameManagerObject = GameObject.FindGameObjectWithTag("GameManager");
+            Gamem gm = gameManagerObject.GetComponent<Gamem>();
             gm.playerGameObjects.Remove(cd.gameObject);
-            cd.gameObject.SetActive(false);
-            
-            GameObject largerSmile = Instantiate(playerPrefab, newPosition, newRotation);
-            gm.playerGameObjects.Add(largerSmile);
-            gm.haveNewObj(largerSmile);
-            largerSmile.transform.localScale *= 1f;
-            gm.SwitchBetweenPlayer();
+            Destroy(cd.gameObject);
+            gameObject.tag = "Player";
         }
         if(cd.tag =="Floor")
         {
             gameObject.SetActive(false);
         }
-        /*
-        if(cd.tag =="Bug")
-        {
-            Destroy(cd.gameObject);
-                
-        }*/
+       
     }
 
     public void GotoSleep()

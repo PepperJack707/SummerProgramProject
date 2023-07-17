@@ -16,7 +16,6 @@ public class Gamem : MonoBehaviour
         {
             if (!players.ContainsKey(playerObject))
             {
-                players.Add(playerObject, false);
                 playerGameObjects.Add(playerObject);
             }
         }
@@ -35,10 +34,15 @@ public class Gamem : MonoBehaviour
 
     public void SwitchBetweenPlayer()
     {
+        if (countNum >= playerGameObjects.Count)
+        {
+            countNum = countNum - playerGameObjects.Count;
+        }
         print("current count: " + countNum);
         if (countNum == 0)
         {
             GameObject previousPlayerObject = (GameObject)playerGameObjects[playerGameObjects.Count-1];
+            previousPlayerObject.tag = "PlayerSub";
             PlayerMove previousScript = previousPlayerObject.GetComponent<PlayerMove>();
             previousScript.GotoSleep();
             previousScript.enabled = false;
@@ -49,6 +53,7 @@ public class Gamem : MonoBehaviour
         {
             GameObject previousPlayerObject = (GameObject)playerGameObjects[countNum - 1];
             PlayerMove previousScript = previousPlayerObject.GetComponent<PlayerMove>();
+            previousPlayerObject.tag = "PlayerSub";
             previousScript.GotoSleep();
             previousScript.enabled = false;
             print("disabled");
@@ -56,6 +61,7 @@ public class Gamem : MonoBehaviour
 
         GameObject currentPlayerObject = (GameObject)playerGameObjects[countNum];
         PlayerMove currentScript = currentPlayerObject.GetComponent<PlayerMove>();
+        currentPlayerObject.tag="Player";
 
         if (currentScript != null)
         {
@@ -64,10 +70,7 @@ public class Gamem : MonoBehaviour
         }
 
         countNum++;
-        if (countNum >= playerGameObjects.Count)
-        {
-            countNum = 0;
-        }
+        
         print("num of obj: " + playerGameObjects.Count);
        
 
@@ -80,4 +83,9 @@ public class Gamem : MonoBehaviour
         previousScript.GotoSleep();
         previousScript.enabled = false;
     }
+
+ public void PlaySplitAni()
+ {
+
+ }
 }
