@@ -264,6 +264,7 @@ MonoBehaviour:
   player: {fileID: 1211403982007655446, guid: d89758ff554e60341a64514b041a285f, type: 3}
   movementSpeed: 0.5
   gm: {fileID: 0}
+  dead: {fileID: 0}
   playerTag: Player
 --- !u!60 &115261746
 PolygonCollider2D:
@@ -485,7 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 406.16666, y: 23.166687}
+  scrollPos: {x: 419.16666, y: 24.833344}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
@@ -498,8 +499,7 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 139592995}
-  selectedCommands:
-  - {fileID: 139593002}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -654,6 +654,7 @@ GameObject:
   - component: {fileID: 211539178}
   - component: {fileID: 211539181}
   - component: {fileID: 211539182}
+  - component: {fileID: 211539183}
   m_Layer: 0
   m_Name: TextPopsWhenTheGameStarts
   m_TagString: Untagged
@@ -702,6 +703,7 @@ MonoBehaviour:
   eventHandler: {fileID: 211539174}
   commandList:
   - {fileID: 211539180}
+  - {fileID: 211539183}
   - {fileID: 211539179}
   - {fileID: 211539181}
   - {fileID: 211539178}
@@ -734,7 +736,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 211539175}
   selectedCommands:
-  - {fileID: 211539182}
+  - {fileID: 211539183}
   variables: []
   description: 
   stepPause: 0
@@ -884,6 +886,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 6
   indentLevel: 0
+--- !u!114 &211539183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211539173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 7
+  indentLevel: 0
+  storyText: Pressing the first button will automatically trigger the appearance
+    of the second button
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!1 &215019366
 GameObject:
   m_ObjectHideFlags: 0
@@ -2769,7 +2799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 139592996}
+  selectedFlowchart: {fileID: 211539176}
 --- !u!4 &2083245693
 Transform:
   m_ObjectHideFlags: 1

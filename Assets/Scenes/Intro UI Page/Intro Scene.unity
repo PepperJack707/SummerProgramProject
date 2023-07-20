@@ -545,7 +545,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 459486022}
   selectedCommands:
-  - {fileID: 459486029}
+  - {fileID: 459486024}
   variables: []
   description: 
   stepPause: 0
@@ -659,7 +659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 1
   indentLevel: 0
-  storyText: 'Hello! '
+  storyText: Hello! (Press Space to continue)
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}

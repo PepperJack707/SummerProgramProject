@@ -9,8 +9,8 @@ public class Enemy : MonoBehaviour
     public Transform player; // Reference to the player's transform
     public float movementSpeed = 2f; // Speed at which the enemy moves towards the player
     public Gamem gm;
-
-    public string playerTag = "Player"; 
+    public GameObject dead;
+    public string playerTag = "Player";
 
     private void Start()
     {
@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
         transform.Translate(direction * movementSpeed * Time.deltaTime);
     }
 
-   void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the collided object is the player character
         if (other.CompareTag("Player"))
@@ -59,23 +59,34 @@ public class Enemy : MonoBehaviour
                 if (gm.countNum >= gm.playerGameObjects.Count)
                 {
                     gm.countNum = gm.countNum - gm.playerGameObjects.Count;
-                    
+
                 }
                 gm.SwitchBetweenPlayer();
+                Destroy(other.gameObject);
+                findPlayerTag();
+
+
             }
-            
-            
-            // Destroy the player character
-            Destroy(other.gameObject);
-            findPlayerTag();
+            else
+            {
+                dead.SetActive(true);
+                SpriteRenderer spriteRenderer = other.GetComponent<SpriteRenderer>();
+                spriteRenderer.enabled = false;
+                MonoBehaviour thisScript = GetComponent<MonoBehaviour>();
+                thisScript.enabled = false;
 
 
+            }
+
+            
+
+
+            }
         }
+
+
+
+
+
+
     }
-
-
-
-   
-    
-
-}

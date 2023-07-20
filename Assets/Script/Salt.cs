@@ -6,6 +6,7 @@ public class Salt : MonoBehaviour
 {
     // Start is called before the first frame update
     public Gamem gm;
+    public GameObject dead;
     void Start()
     {
         
@@ -30,18 +31,24 @@ public class Salt : MonoBehaviour
 
                 }
                 gm.SwitchBetweenPlayer();
+                Destroy(collision.gameObject);
             }
 
+            else
+            {
+                dead.SetActive(true);
+                SpriteRenderer spriteRenderer = collision.GetComponent<SpriteRenderer>();
+                spriteRenderer.enabled = false;
+               
 
-            // Destroy the player character
-            Destroy(collision.gameObject);
-
-
+            }
 
         }
         else
         {
+            
             Destroy(collision.gameObject);
+
         }
     }
 }
