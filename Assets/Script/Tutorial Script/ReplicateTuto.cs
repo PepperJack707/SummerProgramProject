@@ -1,23 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Replicate : MonoBehaviour
+public class ReplicateTuto : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject playerPrefab;
     //public Animator walking;
     public Enemy en;
-    public Gamem gm;
+    public GameMana gm;
     public Animator split;
-    
+    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         SplitFunction();
@@ -61,7 +59,7 @@ public class Replicate : MonoBehaviour
         float player1Width = playerPrefab.GetComponent<SpriteRenderer>().bounds.size.x;
 
         // Calculate the distance to keep between the objects
-        float distance = (playerObjectWidth + player1Width)*1.0f;
+        float distance = (playerObjectWidth + player1Width) * 1.0f;
 
         // Instantiate the new player object next to the playerObject
         GameObject player1 = Instantiate(playerPrefab, currentPosition + new Vector3(distance, 0f, 0f), Quaternion.identity);
@@ -76,11 +74,11 @@ public class Replicate : MonoBehaviour
         player1.transform.localScale = smallerScale;
         playerObject.transform.localScale = smallerScale;
         currentPosition.x += -0.1f;
-        
+
         playerObject.transform.position = currentPosition;
 
         en.player = player1.transform;
         gm.haveNewObj(player1);
-       // gm.SwitchBetweenPlayer();
+        // gm.SwitchBetweenPlayer();
     }
 }

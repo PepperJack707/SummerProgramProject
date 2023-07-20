@@ -54,11 +54,17 @@ public class Enemy : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             gm.playerGameObjects.Remove(other.gameObject);
-            if (gm.countNum >= gm.playerGameObjects.Count)
+            if (gm.playerGameObjects.Count >= 1)
             {
-                gm.countNum = gm.countNum - gm.playerGameObjects.Count;
+                if (gm.countNum >= gm.playerGameObjects.Count)
+                {
+                    gm.countNum = gm.countNum - gm.playerGameObjects.Count;
+                    
+                }
+                gm.SwitchBetweenPlayer();
             }
-            gm.SwitchBetweenPlayer();
+            
+            
             // Destroy the player character
             Destroy(other.gameObject);
             findPlayerTag();
