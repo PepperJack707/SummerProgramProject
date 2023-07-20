@@ -6,6 +6,7 @@ public class ButtonHit : MonoBehaviour
 {
     // Start is called before the first frame update
     public DetectHIt detectH;
+    public GameObject nextButton;
     
     void Start()
     {
@@ -19,18 +20,27 @@ public class ButtonHit : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D cd)
     {
-        if (cd.tag == "Player" || cd.tag == "PlayerSplit")
+        if (cd.tag == "Player")
         {
-            detectH.objectHit++;
+            detectH.turnButtonOn(nextButton);
             print(detectH.objectHit);
-            Destroy(gameObject);
-           if(detectH.objectHit ==3)
-            {
-                detectH.SetcActive();
-            }
-            
-            
+            //Destroy(gameObject);
+
         }
-        //detectH.objectHit = 0;
+    }
+    void OnTriggerExit2D(Collider2D cd)
+    {
+        print("leaving");
+        if(nextButton.tag == "Button3")
+        {
+            print("destroyed all");
+            detectH.destroyAllGameObj();
+        }
+        else
+        {
+            detectH.turnButtonOff(nextButton);
+        }
+        
+
     }
 }

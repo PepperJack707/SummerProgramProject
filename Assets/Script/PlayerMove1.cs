@@ -48,8 +48,10 @@ public class PlayerMove : MonoBehaviour
         {
             rd.AddForce(Vector2.up * speed, ForceMode2D.Force);
             sr.sprite = facingUp;
+            walking.SetBool("TurnU", true);
             walking.SetBool("TurnD", false);
             walking.SetBool("TurnR", false);
+            walking.SetBool("TurnL", false);
 
         }
         else if (Input.GetKey("s"))
@@ -58,6 +60,9 @@ public class PlayerMove : MonoBehaviour
             sr.sprite = facingDown;
             walking.SetBool("TurnD", true);
             walking.SetBool("TurnR", false);
+            walking.SetBool("TurnL", false);
+            walking.SetBool("TurnU", false);
+
         }
         else if (Input.GetKey("d"))
         {
@@ -65,6 +70,10 @@ public class PlayerMove : MonoBehaviour
             sr.sprite = facingRight;
             walking.SetBool("TurnD", false);
             walking.SetBool("TurnR", true);
+            walking.SetBool("TurnL", false);
+            walking.SetBool("TurnU", false);
+
+
         }
         else if (Input.GetKey("a"))
         {
@@ -72,12 +81,16 @@ public class PlayerMove : MonoBehaviour
             sr.sprite = facingLeft;
             walking.SetBool("TurnD", false);
             walking.SetBool("TurnR", false);
+            walking.SetBool("TurnU", false);
+            walking.SetBool("TurnL", true);
         }
         else
         {
             rd.velocity = Vector2.zero; 
             walking.SetBool("TurnD", false);
             walking.SetBool("TurnR", false);
+            walking.SetBool("TurnL", false);
+            walking.SetBool("TurnU", false);
         }
 
 
@@ -102,6 +115,8 @@ public class PlayerMove : MonoBehaviour
             GameObject gameManagerObject = GameObject.FindGameObjectWithTag("GameManager");
             Gamem gm = gameManagerObject.GetComponent<Gamem>();
             gm.playerGameObjects.Remove(cd.gameObject);
+            Vector3 newScale = transform.localScale * 1.3f; 
+            transform.localScale = newScale;
             Destroy(cd.gameObject);
             if (gm.countNum >= gm.playerGameObjects.Count)
             {
@@ -113,6 +128,7 @@ public class PlayerMove : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
        
     }
 

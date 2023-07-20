@@ -10,10 +10,12 @@ public class Gamem : MonoBehaviour
     public ArrayList playerGameObjects = new ArrayList();
     public int countNum ;
     public GameObject SplitAni;
+    public Enemy en;
     // Start is called before the first frame update
     void Start()
     {
         GameObject[] playerObjects = GameObject.FindGameObjectsWithTag("Player");
+
         foreach (GameObject playerObject in playerObjects)
         {
             if (!players.ContainsKey(playerObject))
@@ -61,6 +63,7 @@ public class Gamem : MonoBehaviour
         GameObject currentPlayerObject = (GameObject)playerGameObjects[countNum];
         PlayerMove currentScript = currentPlayerObject.GetComponent<PlayerMove>();
         currentPlayerObject.tag="Player";
+        //en.findPlayerTag();
 
         if (currentScript != null)
         {
