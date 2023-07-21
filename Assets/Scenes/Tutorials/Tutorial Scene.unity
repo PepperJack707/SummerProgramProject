@@ -432,7 +432,6 @@ GameObject:
   - component: {fileID: 139592996}
   - component: {fileID: 139592995}
   - component: {fileID: 139592999}
-  - component: {fileID: 139592998}
   - component: {fileID: 139593000}
   - component: {fileID: 139593001}
   - component: {fileID: 139593002}
@@ -468,10 +467,9 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 139593000}
   commandList:
-  - {fileID: 139592999}
-  - {fileID: 139592998}
   - {fileID: 139593002}
   - {fileID: 139593001}
+  - {fileID: 139592999}
   suppressAllAutoSelections: 0
 --- !u!114 &139592996
 MonoBehaviour:
@@ -526,33 +524,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &139592998
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139592994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 2
-  indentLevel: 0
-  storyText: 'Now you can proceed to the next room by entering the door. '
-  description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
 --- !u!114 &139592999
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -567,7 +538,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 1
   indentLevel: 0
-  storyText: 'Nice Work! '
+  storyText: Nice Work! Approach your buddy to rejoin. And be sure to check out those
+    tasty little crumbs on your way out!
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -597,7 +569,7 @@ MonoBehaviour:
   waitForFrames: 1
 --- !u!114 &139593001
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -618,7 +590,7 @@ MonoBehaviour:
   targetGameObjectOLD: {fileID: 0}
 --- !u!114 &139593002
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -651,8 +623,6 @@ GameObject:
   - component: {fileID: 211539174}
   - component: {fileID: 211539180}
   - component: {fileID: 211539179}
-  - component: {fileID: 211539178}
-  - component: {fileID: 211539181}
   - component: {fileID: 211539182}
   - component: {fileID: 211539183}
   m_Layer: 0
@@ -705,8 +675,6 @@ MonoBehaviour:
   - {fileID: 211539180}
   - {fileID: 211539183}
   - {fileID: 211539179}
-  - {fileID: 211539181}
-  - {fileID: 211539178}
   - {fileID: 211539182}
   suppressAllAutoSelections: 0
 --- !u!114 &211539176
@@ -722,7 +690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 530.8333, y: 30.50003}
+  scrollPos: {x: 418.16666, y: 24.833313}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
@@ -736,7 +704,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 211539175}
   selectedCommands:
-  - {fileID: 211539183}
+  - {fileID: 211539179}
   variables: []
   description: 
   stepPause: 0
@@ -763,33 +731,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &211539178
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 211539173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 3
-  indentLevel: 0
-  storyText: Once both buttons are pressed, you can proceed to the next room!
-  description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
 --- !u!114 &211539179
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -804,8 +745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 2
   indentLevel: 0
-  storyText: Press the 'Enter' key to Split the Slime, and then use each of the Slime
-    to press one of the buttons
+  storyText: Change the active slime by pressing P.
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -832,34 +772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 1
   indentLevel: 0
-  storyText: The objective of this level is to press both buttons.
-  description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
---- !u!114 &211539181
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 211539173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 4
-  indentLevel: 0
-  storyText: You can switch the slime that you are controlling be pressing "p"
+  storyText: Press WASD to move onto the button. (Press space to proceed)
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -888,7 +801,7 @@ MonoBehaviour:
   indentLevel: 0
 --- !u!114 &211539183
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -900,8 +813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 7
   indentLevel: 0
-  storyText: Pressing the first button will automatically trigger the appearance
-    of the second button
+  storyText: Press enter for a surprise!
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -2055,7 +1967,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138477601}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.21, y: -4.44, z: 0.0462}
+  m_LocalPosition: {x: -0.99, y: -5.92, z: 0.0462}
   m_LocalScale: {x: 0.60298246, y: 0.4634683, z: 0.72533494}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2507,7 +2419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675005001}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.0805, y: -5.8739, z: 0.0462}
+  m_LocalPosition: {x: -12.83, y: -5.93, z: 0.0462}
   m_LocalScale: {x: 0.6154569, y: 0.47376692, z: 0.5999112}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2799,7 +2711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 211539176}
+  selectedFlowchart: {fileID: 139592996}
 --- !u!4 &2083245693
 Transform:
   m_ObjectHideFlags: 1
@@ -2926,6 +2838,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2434498073272383100, guid: cd78f41b038109c4da96b8e2809e4be2, type: 3}
+      propertyPath: speed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8322389463904211487, guid: cd78f41b038109c4da96b8e2809e4be2, type: 3}
       propertyPath: m_Name
       value: Player
