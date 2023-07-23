@@ -234,7 +234,7 @@ namespace Fungus
                         {
                             targetAudioSource.loop = false;
                             targetVolume = volume;
-                            targetAudioSource.Play();
+                            //targetAudioSource.Play();
 
                             float extend = targetAudioSource.clip.length;
                             nextBeepTime = Time.realtimeSinceStartup + extend;

@@ -8,9 +8,10 @@ public class Salt : MonoBehaviour
     public Gamem gm;
     public GameObject dead;
     public GameObject button;
+    public Collider2D salt;
     void Start()
     {
-        
+        salt = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -34,15 +35,18 @@ public class Salt : MonoBehaviour
                 gm.SwitchBetweenPlayer();
                 Destroy(collision.gameObject);
             }
-
             else
             {
                 dead.SetActive(true);
                 SpriteRenderer spriteRenderer = collision.GetComponent<SpriteRenderer>();
                 spriteRenderer.enabled = false;
-               
+
 
             }
+
+        }
+        else if(collision.CompareTag("Stick"))
+        {
 
         }
         else
@@ -53,4 +57,6 @@ public class Salt : MonoBehaviour
 
         }
     }
+    
+
 }

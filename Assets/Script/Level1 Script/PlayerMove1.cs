@@ -130,7 +130,6 @@ public class PlayerMove : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-
        
     }
 
