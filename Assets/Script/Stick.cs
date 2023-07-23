@@ -45,7 +45,7 @@ public class Stick : MonoBehaviour
         }
         else if(cn.tag == "Salt")
         {
-            cn.enabled = false;
+            //cn.enabled = false;
         }
     }
     public void OnTriggerExit2D(Collider2D cn)
@@ -55,9 +55,9 @@ public class Stick : MonoBehaviour
             isColliding = false;
 
         }
-        else if(cn == stickCollider)
+        else if(cn.tag == "Salt")
         {
-            cn.enabled = true;
+            //cn.enabled = true;
             print(GetComponent<Collider2D>().transform.gameObject.name);
             print("exit");
         }
