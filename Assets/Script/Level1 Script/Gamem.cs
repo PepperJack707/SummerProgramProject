@@ -21,6 +21,7 @@ public class Gamem : MonoBehaviour
             if (!players.ContainsKey(playerObject))
             {
                 playerGameObjects.Add(playerObject);
+                countNum++;
             }
         }
     }
@@ -29,7 +30,7 @@ public class Gamem : MonoBehaviour
     void Update()
     {
         //print(players.Count);
-        if(Input.GetKeyDown("p"))
+        if(Input.GetKeyDown("q"))
         {
             SwitchBetweenPlayer();
         }

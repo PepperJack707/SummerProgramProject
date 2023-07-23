@@ -7,6 +7,7 @@ public class Salt : MonoBehaviour
     // Start is called before the first frame update
     public Gamem gm;
     public GameObject dead;
+    public GameObject button;
     void Start()
     {
         
@@ -46,8 +47,9 @@ public class Salt : MonoBehaviour
         }
         else
         {
-            
+            button.SetActive(true);
             Destroy(collision.gameObject);
+
 
         }
     }

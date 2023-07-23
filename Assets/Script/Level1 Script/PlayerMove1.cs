@@ -18,6 +18,7 @@ public class PlayerMove : MonoBehaviour
     private bool isClick;
     private int count;
     public GameObject playerPrefab;
+    public Replicate re;
 
 
 
@@ -46,7 +47,7 @@ public class PlayerMove : MonoBehaviour
        
         if (Input.GetKey("w"))
         {
-            rd.AddForce(Vector2.up * speed, ForceMode2D.Force);
+            rd.AddForce(Vector2.up * speed * Time.deltaTime, ForceMode2D.Force);
             sr.sprite = facingUp;
             walking.SetBool("TurnU", true);
             walking.SetBool("TurnD", false);
@@ -56,7 +57,7 @@ public class PlayerMove : MonoBehaviour
         }
         else if (Input.GetKey("s"))
         {
-            rd.AddForce(Vector2.down * speed , ForceMode2D.Force);
+            rd.AddForce(Vector2.down * speed * Time.deltaTime, ForceMode2D.Force);
             sr.sprite = facingDown;
             walking.SetBool("TurnD", true);
             walking.SetBool("TurnR", false);
@@ -66,7 +67,7 @@ public class PlayerMove : MonoBehaviour
         }
         else if (Input.GetKey("d"))
         {
-            rd.AddForce(Vector2.right * speed, ForceMode2D.Force);
+            rd.AddForce(Vector2.right * speed * Time.deltaTime, ForceMode2D.Force);
             sr.sprite = facingRight;
             walking.SetBool("TurnD", false);
             walking.SetBool("TurnR", true);
@@ -77,7 +78,7 @@ public class PlayerMove : MonoBehaviour
         }
         else if (Input.GetKey("a"))
         {
-            rd.AddForce(Vector2.left * speed, ForceMode2D.Force);
+            rd.AddForce(Vector2.left * speed * Time.deltaTime, ForceMode2D.Force);
             sr.sprite = facingLeft;
             walking.SetBool("TurnD", false);
             walking.SetBool("TurnR", false);
@@ -123,6 +124,7 @@ public class PlayerMove : MonoBehaviour
                 gm.countNum = gm.countNum - gm.playerGameObjects.Count;
             }
             //gm.SwitchBetweenPlayer();
+            re.NumOfSPlit--;
         }
         if(cd.tag =="Floor")
         {

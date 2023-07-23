@@ -194,7 +194,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &72874692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1123,6 +1123,7 @@ MonoBehaviour:
   en: {fileID: 72874692}
   gm: {fileID: 1278155668}
   split: {fileID: 1134662270}
+  NumOfSPlit: 0
 --- !u!4 &761823440
 Transform:
   m_ObjectHideFlags: 0
@@ -2924,6 +2925,14 @@ PrefabInstance:
     - target: {fileID: 5332341239979157939, guid: 765313590fe456f4f9be1ba12c7dc2ca, type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930355633041645205, guid: 765313590fe456f4f9be1ba12c7dc2ca, type: 3}
+      propertyPath: re
+      value: 
+      objectReference: {fileID: 761823439}
+    - target: {fileID: 5930355633041645205, guid: 765313590fe456f4f9be1ba12c7dc2ca, type: 3}
+      propertyPath: speed
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 7584615304324546300, guid: 765313590fe456f4f9be1ba12c7dc2ca, type: 3}
       propertyPath: m_IsActive

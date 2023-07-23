@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 134156332}
   - component: {fileID: 134156331}
   - component: {fileID: 134156338}
+  - component: {fileID: 134156339}
   m_Layer: 0
   m_Name: TextWhenStart
   m_TagString: Untagged
@@ -217,7 +218,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134156330}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
   m_Name: 
@@ -301,6 +302,7 @@ MonoBehaviour:
   - {fileID: 134156332}
   - {fileID: 134156338}
   - {fileID: 134156331}
+  - {fileID: 134156339}
   suppressAllAutoSelections: 0
 --- !u!114 &134156335
 MonoBehaviour:
@@ -315,7 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 419.16666, y: 24.833313}
+  scrollPos: {x: 481.16666, y: 28.833344}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
@@ -329,7 +331,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 134156334}
   selectedCommands:
-  - {fileID: 134156338}
+  - {fileID: 134156331}
   variables: []
   description: 
   stepPause: 0
@@ -370,9 +372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 3
   indentLevel: 0
-  storyText: '
-
-    But beware! Salt is deadly for slimes, both red and green ;)'
+  storyText: But beware! Salt is deadly for slimes, both red and green ;)
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -385,6 +385,23 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &134156339
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134156330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 4
+  indentLevel: 0
+  targetObject: {fileID: 1721861984}
+  methodName: turnEnOn
+  delay: 0
 --- !u!1 &139603253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,6 +1028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gm: {fileID: 1882437509}
   dead: {fileID: 538104613}
+  button: {fileID: 1081403397}
 --- !u!61 &255545251
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1193,7 +1211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &313978280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1201,7 +1219,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313978279}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03c8aad3ebe6b1c4f85cd4f1b7496b06, type: 3}
   m_Name: 
@@ -1398,6 +1416,7 @@ MonoBehaviour:
   en: {fileID: 313978280}
   gm: {fileID: 1882437509}
   split: {fileID: 537798019}
+  NumOfSPlit: 0
 --- !u!4 &331378318
 Transform:
   m_ObjectHideFlags: 0
@@ -1450,7 +1469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.78700006}
-  m_AnchoredPosition: {x: 3, y: 22.815018}
+  m_AnchoredPosition: {x: -30.5, y: 802}
   m_SizeDelta: {x: -61, y: -45.63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &459833224
@@ -1494,7 +1513,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 79197ecfbc3a4294a89ce589dac02cf2, type: 3}
+    m_Font: {fileID: 12800000, guid: cbfb3165f0652dc4b895879984325523, type: 3}
     m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
@@ -1505,7 +1524,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 2
   m_Text: Story text
 --- !u!222 &459833226
 CanvasRenderer:
@@ -1602,6 +1621,10 @@ PrefabInstance:
     - target: {fileID: 5332341239979157939, guid: 765313590fe456f4f9be1ba12c7dc2ca, type: 3}
       propertyPath: m_SortingOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930355633041645205, guid: 765313590fe456f4f9be1ba12c7dc2ca, type: 3}
+      propertyPath: speed
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 7584615304324546300, guid: 765313590fe456f4f9be1ba12c7dc2ca, type: 3}
       propertyPath: m_IsActive
@@ -2309,7 +2332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1081403398
 Rigidbody2D:
   serializedVersion: 4
@@ -2358,7 +2381,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081403397}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -3033,6 +3056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gm: {fileID: 1882437509}
   dead: {fileID: 538104613}
+  button: {fileID: 0}
 --- !u!60 &1480122750
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3327,6 +3351,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1721861984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1721861986}
+  - component: {fileID: 1721861985}
+  m_Layer: 0
+  m_Name: TextManage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1721861985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721861984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8109e3d8e2795904c8520250321e48b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  en: {fileID: 313978280}
+  cd: {fileID: 0}
+--- !u!4 &1721861986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721861984}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6293202, y: -0.76362467, z: -0.02375669}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1743184242
 PrefabInstance:
