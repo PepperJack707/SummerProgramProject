@@ -9,6 +9,7 @@ public class Salt : MonoBehaviour
     public GameObject dead;
     public GameObject button;
     public Collider2D salt;
+    public bool isDeadly;
     void Start()
     {
         salt = GetComponent<Collider2D>();
@@ -22,7 +23,7 @@ public class Salt : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && isDeadly == true)
         {
             gm.playerGameObjects.Remove(collision.gameObject);
             if (gm.playerGameObjects.Count >= 1)
@@ -40,16 +41,22 @@ public class Salt : MonoBehaviour
                 dead.SetActive(true);
                 SpriteRenderer spriteRenderer = collision.GetComponent<SpriteRenderer>();
                 spriteRenderer.enabled = false;
+                for (int i = 0; i < collision.transform.childCount; i++)
+                {
+                    Transform child = collision.transform.GetChild(i);
+                    child.gameObject.SetActive(false);
+                }
 
 
             }
 
         }
-        else if(collision.CompareTag("Stick"))
+        else if(collision.CompareTag("Stick") && isDeadly == true)
         {
-
+            isDeadly = false;
+            print("not deadly");
         }
-        else
+        else if(collision.CompareTag("Bug"))
         {
             button.SetActive(true);
             Destroy(collision.gameObject);
@@ -57,6 +64,14 @@ public class Salt : MonoBehaviour
 
         }
     }
-    
+
+    public void OnTriggerExit2D(Collider2D cn)
+    {
+        if(cn.tag == "Stick")
+        {
+            isDeadly = true;
+        }
+    }
+
 
 }
